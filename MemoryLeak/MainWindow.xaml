@@ -1,0 +1,46 @@
+﻿<Window x:Class="MemoryLeak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        FontSize="16"
+        Width="768">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBox Text="Select the binding/event method to test:"
+                     VerticalAlignment="Center"
+                     Margin="10,10,10,0"
+                     x:Name="MainTextBox" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox Margin="10"
+                     x:Name="ExampleListBox">
+                <TextBlock Text="1. Normal use of new object." />
+                <TextBlock Text="2. Improper use of EventHandlers (develop error)." />
+                <TextBlock Text="3. Improper use of DataBinding (develop error)." />
+                <TextBlock Text="4. Improper use of DispatcherTimer (develop error)." />
+                <TextBlock Text="5. Improper use of Static EventHandlers (develop error)." />
+                <TextBlock Text="6. Improper use of CommandBinding (develop error)." />
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <UniformGrid Rows="2"
+                         HorizontalAlignment="Left"
+                         Margin="10">
+                <Button Content="Launch Window"
+                        Width="240"
+                        Height="60"
+                        Margin="0,0,0,10"
+                        Click="LaunchButton_OnClick" />
+                <Button Content="Force GC"
+                        Width="240"
+                        Height="60"
+                        Click="GCButton_OnClick" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</Window>

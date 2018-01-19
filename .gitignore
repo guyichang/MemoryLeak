@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/MemoryLeak/v15
+/MemoryLeak/bin/Debug
+/MemoryLeak/obj/Debug
