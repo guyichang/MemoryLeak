@@ -29,7 +29,7 @@ namespace MemoryLeak
             if (index == 2)
             {
                 Example2 window = new Example2();
-                MainTextBox.TextChanged += window.OnTextChanged;
+                ExampleTextBox.TextChanged += window.OnTextChanged;
                 window.Show();
             }
 
@@ -50,12 +50,6 @@ namespace MemoryLeak
             if (index == 5)
             {
                 Example5 window = new Example5();
-                window.Show();
-            }
-
-            if (index == 6)
-            {
-                Example6 window = new Example6();
                 window.Show();
             }
         }
