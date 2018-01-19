@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Threading;
+﻿using System.Collections.Generic;
 
 namespace MemoryLeak.Example
 {
@@ -12,22 +10,18 @@ namespace MemoryLeak.Example
         private readonly List<string> _bigList = ExampleHelper.BigList();
 
         /// <summary>
-        /// 产生条件：使用了计时器，而计时器在WPF中是Dispatcher里面的一个列表对象中的一个对象，而Dispatcher全局存在
-        /// Start的时候会将此计时器加入到计时器列表中_dispatcher.AddTimer(this);而Stop时会移除_dispatcher.RemoveTimer(this);
-        /// 对策：及时停止计时器
+        /// 产生条件：注册了静态事件，而静态对象是永远存在内存中的
+        /// 对策：清除静态事件的引用
         /// </summary>
         public Example4()
         {
             InitializeComponent();
 
-            DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            ExampleHelper.LeakEvent += ExampleHelper_LeakEvent;
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void ExampleHelper_LeakEvent(object sender, System.EventArgs e)
         {
-            Console.WriteLine(DateTime.Now);
         }
     }
 }

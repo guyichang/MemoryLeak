@@ -16,12 +16,6 @@ namespace MemoryLeak.Example
         public Example5()
         {
             InitializeComponent();
-
-            ExampleHelper.LeakEvent += ExampleHelper_LeakEvent;
-        }
-
-        private void ExampleHelper_LeakEvent(object sender, System.EventArgs e)
-        {
         }
     }
 }
