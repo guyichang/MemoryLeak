@@ -16,7 +16,7 @@ namespace MemoryLeak.Example
         }
 
         public static event EventHandler LeakEvent;
-        private static void RaiseLeakEvent()
+        public static void RaiseLeakEvent()
         {
             LeakEvent?.Invoke(null, EventArgs.Empty);
         }
