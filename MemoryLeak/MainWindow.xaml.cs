@@ -16,9 +16,7 @@ namespace MemoryLeak
 
         private void LaunchButton_OnClick(object sender, RoutedEventArgs e)
         {
-            int index = ExampleListBox.SelectedIndex;
-
-            switch (index)
+            switch (ExampleListBox.SelectedIndex)
             {
                 case 0:
                     {
@@ -35,7 +33,6 @@ namespace MemoryLeak
                 case 2:
                     {
                         Example3 window = new Example3();
-                        ExampleTextBox.TextChanged += window.OnTextChanged;
                         window.Show();
                         break;
                     }
@@ -53,7 +50,6 @@ namespace MemoryLeak
                     }
             }
         }
-
         private void GCButton_OnClick(object sender, RoutedEventArgs e)
         {
             GC.Collect();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MemoryLeak.Example
 {
@@ -7,6 +8,7 @@ namespace MemoryLeak.Example
     /// </summary>
     public partial class Example4
     {
+        //这里产生一个大的内存占用，约50MB，用于在任务管理器看到这个窗口Show出来以后，进程内存占用剧增的现象
         private readonly List<string> _bigList = ExampleHelper.BigList();
 
         /// <summary>
@@ -22,6 +24,7 @@ namespace MemoryLeak.Example
 
         private void ExampleHelper_LeakEvent(object sender, System.EventArgs e)
         {
+
         }
     }
 }
